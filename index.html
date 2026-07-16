@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BilG</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <canvas id="universe-canvas"></canvas>
+
+    <div class="portal-viewport">
+        <div class="hologram-node" id="js-hologram">
+            
+            <svg class="hologram-frame" viewBox="0 0 440 540" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path id="morphing-path" d="M20,40 Q220,20 420,40 Q450,270 420,500 Q220,520 20,500 Q-10,270 20,40 Z" stroke="url(#cosmic-grad)" stroke-width="2" fill="rgba(5, 7, 12, 0.7)"/>
+                <defs>
+                    <linearGradient id="cosmic-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#00f2fe" />
+                        <stop offset="50%" stop-color="#9b51e0" />
+                        <stop offset="100%" stop-color="#0575e6" />
+                    </linearGradient>
+                </defs>
+            </svg>
+
+            <div class="ui-content">
+                <div class="portal-header">
+                    <h2>WELCOME TO BilG</h2>
+                    <p>God First Always</p>
+                </div>
+
+                <form onsubmit="event.preventDefault();" class="portal-form">
+                    <div class="quantum-input" id="user-container">
+                        <input type="email" id="email" required placeholder=" ">
+                        <label for="email">User ID</label>
+                        <span class="light-beam"></span>
+                    </div>
+
+                    <div class="quantum-input" id="pass-container">
+                        <input type="password" id="password" required placeholder=" ">
+                        <label for="password">Passphrase</label>
+                        <span class="light-beam"></span>
+                    </div>
+
+                    <button type="submit" class="energy-core" id="magnetic-core">
+                        <div class="core-glow"></div>
+                        <span>Sign In</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/gsap@3.12.2/dist/gsap.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>
