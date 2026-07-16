@@ -1,0 +1,196 @@
+:root {
+    --cosmic-black: #020205;
+    --neon-cyan: #00f2fe;
+    --neon-purple: #9b51e0;
+    --neon-emerald: #00ff87;
+    --text-ghost: rgba(255, 255, 255, 0.6);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    background-color: var(--cosmic-black);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1200px;
+}
+
+#universe-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.portal-viewport {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+/* Holographic Morphing Interface Container */
+.hologram-node {
+    position: relative;
+    width: 440px;
+    height: 540px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: translateZ(-200px) scale(0.8);
+    pointer-events: auto;
+    transform-style: preserve-3d;
+}
+
+.hologram-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    filter: drop-shadow(0 0 20px rgba(0, 242, 254, 0.3));
+}
+
+.ui-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 50px 40px;
+    transform: translateZ(30px); /* Pushes UI text forward in 3D perspective space */
+}
+
+.portal-header h2 {
+    color: #fff;
+    font-size: 20px;
+    letter-spacing: 4px;
+    text-align: center;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+
+.portal-header p {
+    color: var(--text-ghost);
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+/* Quantum Light-Written Fields */
+.quantum-input {
+    position: relative;
+    margin-bottom: 35px;
+    width: 100%;
+}
+
+.quantum-input input {
+    width: 100%;
+    padding: 15px 10px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    outline: none;
+    color: #fff;
+    font-size: 15px;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.quantum-input label {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-ghost);
+    pointer-events: none;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+/* Focused beam effect */
+.light-beam {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--neon-cyan), var(--neon-emerald));
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.quantum-input input:focus ~ .light-beam,
+.quantum-input input:not(:placeholder-shown) ~ .light-beam {
+    width: 100%;
+    left: 0;
+}
+
+.quantum-input input:focus ~ label,
+.quantum-input input:not(:placeholder-shown) ~ label {
+    top: -12px;
+    font-size: 11px;
+    color: var(--neon-cyan);
+    text-shadow: 0 0 8px rgba(0,242,254,0.6);
+}
+
+/* Magnetic Energy Core Button */
+.energy-core {
+    width: 100%;
+    padding: 16px;
+    background: transparent;
+    border: 1px solid rgba(155, 81, 224, 0.4);
+    border-radius: 4px;
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 4px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    margin-top: 20px;
+    transition: border-color 0.3s;
+}
+
+.core-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0px;
+    height: 0px;
+    background: radial-gradient(circle, var(--neon-purple) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    transition: width 0.4s, height 0.4s;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.energy-core:hover {
+    border-color: var(--neon-cyan);
+}
+
+.energy-core:hover .core-glow {
+    width: 300px;
+    height: 300px;
+}
+
+.energy-core span {
+    position: relative;
+    z-index: 2;
+}
